@@ -44,6 +44,21 @@ public void Home_button(GButton source, GEvent event) { //_CODE_:button3:786171:
   println("button3 - GButton >> GEvent." + event + " @ " + millis());
 } //_CODE_:button3:786171:
 
+public void Teach_img1(GImageButton source, GEvent event) { //_CODE_:imgButton1:822721:
+  println("imgButton1 - GImageButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:imgButton1:822721:
+
+public void imgButton2_click1(GImageButton source, GEvent event) { //_CODE_:imgButton2:850836:
+  println("imgButton2 - GImageButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:imgButton2:850836:
+
+public void Scroller_1(GSlider source, GEvent event) { //_CODE_:slider1:584371:
+   imgButton1.moveTo(1, slider1.getValueF());
+   imgButton2.moveTo(1, slider1.getValueF()+270);
+
+  println("slider1 - GSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:slider1:584371:
+
 
 
 // Create all the GUI controls. 
@@ -53,7 +68,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Main");
-  window1 = GWindow.getWindow(this, "Window title", 0, 0, 500, 500, JAVA2D);
+  window1 = GWindow.getWindow(this, "Window title", 450, 120, 500, 500, JAVA2D);
   window1.noLoop();
   window1.setActionOnClose(G4P.CLOSE_WINDOW);
   window1.addDrawHandler(this, "Main_win");
@@ -65,14 +80,60 @@ public void createGUI(){
   button2.setText("Duel");
   button2.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   button2.addEventHandler(this, "Duel_button");
-  window2 = GWindow.getWindow(this, "Window title", 0, 0, 500, 500, JAVA2D);
+  window2 = GWindow.getWindow(this, "Window title", 450, 120, 500, 500, JAVA2D);
   window2.noLoop();
   window2.setActionOnClose(G4P.CLOSE_WINDOW);
   window2.addDrawHandler(this, "Index_win");
-  button3 = new GButton(window2, 9, 9, 82, 24);
+  button3 = new GButton(window2, 9, 8, 82, 24);
   button3.setText("Home ");
   button3.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   button3.addEventHandler(this, "Home_button");
+  imgButton1 = new GImageButton(window2, 2, 100, 127, 202, new String[] { "teacher.jpg", "teacher.jpg", "teacher.jpg" } );
+  imgButton1.addEventHandler(this, "Teach_img1");
+  label1 = new GLabel(window2, 133, 101, 160, 33);
+  label1.setText("Name: Angela Holten");
+  label1.setLocalColorScheme(GCScheme.GOLD_SCHEME);
+  label1.setOpaque(false);
+  label2 = new GLabel(window2, 132, 137, 160, 33);
+  label2.setText("Age: 34");
+  label2.setLocalColorScheme(GCScheme.GOLD_SCHEME);
+  label2.setOpaque(false);
+  label3 = new GLabel(window2, 132, 174, 160, 34);
+  label3.setText("Teaching: Math & Calculus");
+  label3.setLocalColorScheme(GCScheme.GOLD_SCHEME);
+  label3.setOpaque(false);
+  label4 = new GLabel(window2, 133, 213, 160, 35);
+  label4.setText("Power: High Pitched");
+  label4.setLocalColorScheme(GCScheme.GOLD_SCHEME);
+  label4.setOpaque(false);
+  label5 = new GLabel(window2, 131, 252, 288, 81);
+  label5.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label5.setText("Description: Cheerful and full of joy. Nice to all of her students and gives free marks to everyone. Her voice his extremely high pitched which can blow out your ear drums. Despite this she is still one of the best teachers because of how many futures of teenagers she has saved.");
+  label5.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
+  label5.setOpaque(true);
+  imgButton2 = new GImageButton(window2, -1, 367, 127, 202, new String[] { "teacher.jpg", "teacher.jpg", "teacher.jpg" } );
+  imgButton2.addEventHandler(this, "imgButton2_click1");
+  label6 = new GLabel(window2, 127, 374, 160, 33);
+  label6.setText("Name: Yeast Beast");
+  label6.setLocalColorScheme(GCScheme.GOLD_SCHEME);
+  label6.setOpaque(false);
+  label7 = new GLabel(window2, 128, 411, 160, 33);
+  label7.setText("Age: 56");
+  label7.setLocalColorScheme(GCScheme.GOLD_SCHEME);
+  label7.setOpaque(false);
+  slider1 = new GSlider(window2, 516, 100, 400, 100, 15.0);
+  slider1.setRotation(PI/2, GControlMode.CORNER);
+  slider1.setLimits(100, 100, 600);
+  slider1.setShowTicks(true);
+  slider1.setEasing(5.0);
+  slider1.setNumberFormat(G4P.INTEGER, 0);
+  slider1.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
+  slider1.setOpaque(false);
+  slider1.addEventHandler(this, "Scroller_1");
+  label8 = new GLabel(window2, 127, 451, 235, 121);
+  label8.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label8.setText("My label");
+  label8.setOpaque(true);
   window1.loop();
   window2.loop();
 }
@@ -84,3 +145,14 @@ GButton button1;
 GButton button2; 
 GWindow window2;
 GButton button3; 
+GImageButton imgButton1; 
+GLabel label1; 
+GLabel label2; 
+GLabel label3; 
+GLabel label4; 
+GLabel label5; 
+GImageButton imgButton2; 
+GLabel label6; 
+GLabel label7; 
+GSlider slider1; 
+GLabel label8; 
