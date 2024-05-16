@@ -3,7 +3,7 @@
  * =========================================================
  * The code in this tab has been generated from the GUI form
  * designer and care should be taken when editing this file.
- * Only add/edit code inside the event handlers i.e. only
+ * Only add/edit code ins ide the event handlers i.e. only
  * use lines between the matching comment tags. e.g.
 
  void myBtnEvents(GButton button) { //_CODE_:button1:12356:
@@ -32,10 +32,12 @@ public void Duel_button(GButton source, GEvent event) { //_CODE_:button2:227004:
 } //_CODE_:button2:227004:
 
 synchronized public void Index_win(PApplet appc, GWinData data) { //_CODE_:window2:604964:
-   appc.background(30);
-   appc.textSize(50); 
-   appc.text("TeacherGallery", 85, 90); 
-   appc.fill(100, 100, 255);
+  appc.background(50);
+  appc.fill(30); 
+  appc.rect(0,0,500,100); 
+  appc.textSize(50); 
+  appc.fill(125,75,90); 
+  appc.text("Gallery", 150, 90); 
 } //_CODE_:window2:604964:
 
 public void Home_button(GButton source, GEvent event) { //_CODE_:button3:786171:
@@ -53,8 +55,17 @@ public void imgButton2_click1(GImageButton source, GEvent event) { //_CODE_:imgB
 } //_CODE_:imgButton2:850836:
 
 public void Scroller_1(GSlider source, GEvent event) { //_CODE_:slider1:584371:
-   imgButton1.moveTo(1, slider1.getValueF());
-   imgButton2.moveTo(1, slider1.getValueF()+270);
+   imgButton1.moveTo(0, slider1.getValueF());
+   imgButton2.moveTo(0, slider1.getValueF()+270);
+   button3.moveTo(9, slider1.getValueF()-92);
+   label1.moveTo(133,slider1.getValueF());
+   label2.moveTo(133,slider1.getValueF()+37);
+   label3.moveTo(133,slider1.getValueF()+74);
+   label4.moveTo(133,slider1.getValueF()+113);
+   label5.moveTo(133,slider1.getValueF()+152);
+   label6.moveTo(133,slider1.getValueF()+274);
+   label7.moveTo(133,slider1.getValueF()+311);
+   label8.moveTo(133,slider1.getValueF()+351);
 
   println("slider1 - GSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:slider1:584371:
@@ -88,17 +99,17 @@ public void createGUI(){
   button3.setText("Home ");
   button3.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   button3.addEventHandler(this, "Home_button");
-  imgButton1 = new GImageButton(window2, 2, 100, 127, 202, new String[] { "teacher.jpg", "teacher.jpg", "teacher.jpg" } );
+  imgButton1 = new GImageButton(window2, 0, 100, 127, 202, new String[] { "teacher.jpg", "teacher.jpg", "teacher.jpg" } );
   imgButton1.addEventHandler(this, "Teach_img1");
-  label1 = new GLabel(window2, 133, 101, 160, 33);
+  label1 = new GLabel(window2, 133, 100, 160, 33);
   label1.setText("Name: Angela Holten");
   label1.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   label1.setOpaque(false);
-  label2 = new GLabel(window2, 132, 137, 160, 33);
+  label2 = new GLabel(window2, 133, 137, 160, 33);
   label2.setText("Age: 34");
   label2.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   label2.setOpaque(false);
-  label3 = new GLabel(window2, 132, 174, 160, 34);
+  label3 = new GLabel(window2, 133, 174, 160, 34);
   label3.setText("Teaching: Math & Calculus");
   label3.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   label3.setOpaque(false);
@@ -106,33 +117,33 @@ public void createGUI(){
   label4.setText("Power: High Pitched");
   label4.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   label4.setOpaque(false);
-  label5 = new GLabel(window2, 131, 252, 288, 81);
+  label5 = new GLabel(window2, 133, 252, 288, 81);
   label5.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label5.setText("Description: Cheerful and full of joy. Nice to all of her students and gives free marks to everyone. Her voice his extremely high pitched which can blow out your ear drums. Despite this she is still one of the best teachers because of how many futures of teenagers she has saved.");
   label5.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   label5.setOpaque(true);
-  imgButton2 = new GImageButton(window2, -1, 367, 127, 202, new String[] { "teacher.jpg", "teacher.jpg", "teacher.jpg" } );
+  imgButton2 = new GImageButton(window2, 0, 370, 127, 202, new String[] { "teacher.jpg", "teacher.jpg", "teacher.jpg" } );
   imgButton2.addEventHandler(this, "imgButton2_click1");
-  label6 = new GLabel(window2, 127, 374, 160, 33);
+  label6 = new GLabel(window2, 133, 374, 160, 33);
   label6.setText("Name: Yeast Beast");
   label6.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   label6.setOpaque(false);
-  label7 = new GLabel(window2, 128, 411, 160, 33);
+  label7 = new GLabel(window2, 133, 411, 160, 33);
   label7.setText("Age: 56");
   label7.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   label7.setOpaque(false);
   slider1 = new GSlider(window2, 516, 100, 400, 100, 15.0);
   slider1.setRotation(PI/2, GControlMode.CORNER);
-  slider1.setLimits(100, 100, 600);
+  slider1.setLimits(100, 100, -600);
   slider1.setShowTicks(true);
   slider1.setEasing(5.0);
   slider1.setNumberFormat(G4P.INTEGER, 0);
   slider1.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   slider1.setOpaque(false);
   slider1.addEventHandler(this, "Scroller_1");
-  label8 = new GLabel(window2, 127, 451, 235, 121);
+  label8 = new GLabel(window2, 133, 451, 235, 121);
   label8.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label8.setText("My label");
+  label8.setText("Description: She's horrible. Nobody Likes her. She's mean, she takes off marks for no reason and she's old and cranky. Absolute worst teacher to have. Best advice, drop the course and take it next semester, she only teaches semster 1.");
   label8.setOpaque(true);
   window1.loop();
   window2.loop();
